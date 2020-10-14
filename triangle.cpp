@@ -11,8 +11,8 @@ class dot_3D {
         ~dot_3D();
         dot_3D(float x, float y, float z);
         //dot_3D(float x, float y, float z) : x_dot3D(x), y_dot3D(y), z_dot3D(z);
-        void set—oordinate(float x, float y, float z);
-        void print—oordinate();
+        void setCoordinate(float x, float y, float z);
+        void printCoordinate();
         float get—oordinateX();
         float get—oordinateY();
         float get—oordinateZ();    
@@ -34,13 +34,13 @@ dot_3D::dot_3D(float x, float y, float z) {
     z_dot3D = z;
 }
 
-void dot_3D::set—oordinate(float x, float y, float z) {
+void dot_3D::setCoordinate(float x, float y, float z) {
     x_dot3D = x;
     y_dot3D = y;
     z_dot3D = z;
 }
 
-void dot_3D::print—oordinate() {
+void dot_3D::printCoordinate() {
     cout << "x = " << x_dot3D << ", y = " << y_dot3D << ", z = " << z_dot3D;
 }
 float dot_3D::get—oordinateX() {
@@ -72,9 +72,9 @@ public:
 };
 
 triangle_3D::triangle_3D() {
-    apex[0].set—oordinate(0, 0, 0);
-    apex[1].set—oordinate(0, 0, 0);
-    apex[2].set—oordinate(0, 0, 0);
+    apex[0].setCoordinate(0, 0, 0);
+    apex[1].setCoordinate(0, 0, 0);
+    apex[2].setCoordinate(0, 0, 0);
 }
 
 triangle_3D::~triangle_3D()
@@ -82,21 +82,21 @@ triangle_3D::~triangle_3D()
 }
 
 triangle_3D::triangle_3D(float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2) {
-    apex[0].set—oordinate(x0, y0, z0);
-    apex[1].set—oordinate(x1, y1, z1);
-    apex[2].set—oordinate(x2, y2, z2);
+    apex[0].setCoordinate(x0, y0, z0);
+    apex[1].setCoordinate(x1, y1, z1);
+    apex[2].setCoordinate(x2, y2, z2);
 }
 
 void triangle_3D::printTriangle() {
-    cout << "A("; apex[0].print—oordinate(); cout << ")\n"; 
-    cout << "B("; apex[1].print—oordinate(); cout << ")\n";
-    cout << "C("; apex[2].print—oordinate(); cout << ")\n";
+    cout << "A("; apex[0].printCoordinate(); cout << ")\n"; 
+    cout << "B("; apex[1].printCoordinate(); cout << ")\n";
+    cout << "C("; apex[2].printCoordinate(); cout << ")\n";
 }
 
 void triangle_3D::setTriangle—oordinate(float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2) {
-    apex[0].set—oordinate(x0, y0, z0);
-    apex[1].set—oordinate(x1, y1, z1);
-    apex[2].set—oordinate(x2, y2, z2);
+    apex[0].setCoordinate(x0, y0, z0);
+    apex[1].setCoordinate(x1, y1, z1);
+    apex[2].setCoordinate(x2, y2, z2);
 }
 
 float triangle_3D::perimeterTriangle() {
@@ -112,8 +112,8 @@ float triangle_3D::perimeterTriangle() {
 float triangle_3D::areaTriangle() {
     dot_3D vector1, vector2;
     
-    vector1.set—oordinate(apex[1].get—oordinateX() - apex[0].get—oordinateX(), apex[1].get—oordinateY() - apex[0].get—oordinateY(), apex[1].get—oordinateZ() - apex[0].get—oordinateZ());
-    vector2.set—oordinate(apex[2].get—oordinateX() - apex[0].get—oordinateX(), apex[2].get—oordinateY() - apex[0].get—oordinateY(), apex[2].get—oordinateZ() - apex[0].get—oordinateZ());
+    vector1.setCoordinate(apex[1].get—oordinateX() - apex[0].get—oordinateX(), apex[1].get—oordinateY() - apex[0].get—oordinateY(), apex[1].get—oordinateZ() - apex[0].get—oordinateZ());
+    vector2.setCoordinate(apex[2].get—oordinateX() - apex[0].get—oordinateX(), apex[2].get—oordinateY() - apex[0].get—oordinateY(), apex[2].get—oordinateZ() - apex[0].get—oordinateZ());
     
 
     float vector_productX = vector2.get—oordinateY() * vector1.get—oordinateZ() - vector2.get—oordinateZ() * vector1.get—oordinateY();
@@ -126,8 +126,8 @@ float triangle_3D::areaTriangle() {
 void triangle_3D::normalTriangle() {
     dot_3D vector1, vector2, normal, normal_new;
 
-    vector1.set—oordinate(apex[1].get—oordinateX() - apex[0].get—oordinateX(), apex[1].get—oordinateY() - apex[0].get—oordinateY(), apex[1].get—oordinateZ() - apex[0].get—oordinateZ());
-    vector2.set—oordinate(apex[2].get—oordinateX() - apex[0].get—oordinateX(), apex[2].get—oordinateY() - apex[0].get—oordinateY(), apex[2].get—oordinateZ() - apex[0].get—oordinateZ());
+    vector1.setCoordinate(apex[1].get—oordinateX() - apex[0].get—oordinateX(), apex[1].get—oordinateY() - apex[0].get—oordinateY(), apex[1].get—oordinateZ() - apex[0].get—oordinateZ());
+    vector2.setCoordinate(apex[2].get—oordinateX() - apex[0].get—oordinateX(), apex[2].get—oordinateY() - apex[0].get—oordinateY(), apex[2].get—oordinateZ() - apex[0].get—oordinateZ());
 
 
     float vector_productX = vector2.get—oordinateY() * vector1.get—oordinateZ() - vector2.get—oordinateZ() * vector1.get—oordinateY();
@@ -136,11 +136,11 @@ void triangle_3D::normalTriangle() {
 
     float normalization = sqrt(pow(vector_productX,2) + pow(vector_productY,2) + pow(vector_productZ,2));
     
-    normal.set—oordinate(vector_productX, vector_productY, vector_productZ);
-    cout << "coordinate of normal: "; normal.print—oordinate(); cout << endl;
+    normal.setCoordinate(vector_productX, vector_productY, vector_productZ);
+    cout << "coordinate of normal: "; normal.printCoordinate(); cout << endl;
     
-    normal_new.set—oordinate(vector_productX / normalization, vector_productY / normalization, vector_productZ / normalization);
-    cout << "coordinate of normal after normalization: "; normal_new.print—oordinate(); cout << endl;
+    normal_new.setCoordinate(vector_productX / normalization, vector_productY / normalization, vector_productZ / normalization);
+    cout << "coordinate of normal after normalization: "; normal_new.printCoordinate(); cout << endl;
 }
 
 void triangle_3D::inner_corners() {
@@ -165,10 +165,10 @@ void triangle_3D::center_of_gravity() {
     float y_grav = (apex[0].get—oordinateY() + apex[1].get—oordinateY() + apex[2].get—oordinateY()) / 3;
     float z_grav = (apex[0].get—oordinateZ() + apex[1].get—oordinateZ() + apex[2].get—oordinateZ()) / 3;
 
-    grav.set—oordinate(x_grav, y_grav, z_grav);
+    grav.setCoordinate(x_grav, y_grav, z_grav);
 
     cout << "center of gravity: ";
-    grav.print—oordinate();
+    grav.printCoordinate();
     cout << endl;
 
 }
